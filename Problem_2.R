@@ -10,9 +10,11 @@ mean(xmin)
 mean(xmax)
 
 #d)
+## Better write xmin[xmin < mean(xmin)]. This makes the code easier to read.
 xmin[xmin<21.4]
 
 #e)
+## This works but 'which' is not necessary here
 xmax[which(xmax>25.57143)]
 
 #f)
@@ -31,15 +33,22 @@ str(xmax)
 #g)
 temperatures <- data.frame(
   df.xmin = xmin,
-  df.xmax = xmax)
+  df.xmax = xmax
+)
 temperatures
 
 
 #h)
-temperatures <- within(temperatures, xminFahrenheit <-9/5*xmin + 32)
+temperatures <- within(temperatures, {
+	xminFahrenheit <-9/5*xmin + 32
+})
 temperatures
 
 #i)
+## You can refer to 
+## the xminFahrenheit column in temperatures in 
+## this way: temperatures$xminFahrenheit or temperatures[, 'xminFahrenheit']
+
 xminFahrenheit <- c(73.40, 68.90, 82.76, 68.54, 72.32, 62.96, 64.76)
 Fahrenheit <- data.frame(
   df.xminFahrenheit = xminFahrenheit
@@ -57,4 +66,9 @@ dayFh <- data.frame(
   df.xminFahrenheit = xminFahrenheit[c(-6,-7)]
 )
 dayFh
+
+## Easier way:
+
+Fahrenheit[1:5, ]
+Fahrenheit[-(6:7), ]
 

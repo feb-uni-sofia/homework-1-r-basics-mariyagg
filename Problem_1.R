@@ -7,6 +7,7 @@ y <- c(1, 4, 0, 0)
 
 #c) 
 x-y
+## Missing explanation
 
 #d)
 s <- c(x, y)
